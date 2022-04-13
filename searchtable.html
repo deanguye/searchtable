@@ -4,19 +4,11 @@
 <h1>Image Slider</h1>
 <h3>Author: Deanna Nguyen</h3>
 
-<script type = "text/javascript">
- //https://www.w3schools.com/howto/howto_js_filter_table.asp
-    
-  
-  
-</script>
-
-
 <!--https://www.w3schools.com/howto/howto_js_lightbox.asp-->
 <!--https://placeholder.com/#How_To_Use_Our_Placeholders-->
 <!--https://www.w3schools.com/howto/howto_js_tab_img_gallery.asp-->
 <label for="id">Image Name:</label>
-	<input  type="text" name="id" size="30">
+	<input  type="text" id="id" onclick = "search()" size="30">
 	<p></p>
   	<input type="submit"/>
 
@@ -38,13 +30,29 @@
 </tr>
 </table>
 
-<!--Used for expansion-->
-<div class = "container">
-  <!--PSEUDOCODE-->
-  <!--Get Element By ID-->
-  <!--If/else to find match, if match found, display it, else, display none-->
- 
-</div>
+	
+<script>
+// method to conduct search here
+//source: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_filter_table
+function search() {
+  let input = document.getElementById("id");
+  let filter = input.value.toUpperCase(); // convert to uppercase
+  let table = document.getElementById("table");
+  let row = table.getElementsByTagName("tr");//get tr
+// this for loop will iterate through the rows and get the column name. For each row, it will check the content
+  for (i = 0; i =< row.length-1; i++) {
+    column = row[i].getElementsByTagName("td")[0]; // get td
+    if (row) { 
+      txt = td.textContent || td.innerText; // text is equal to the content inside the column
+      if (txt.toUpperCase().indexOf(filter) > -1) { // if found, display data
+        row[i].style.display = "";
+      } else {
+        row[i].style.display = "none"; // don't display anything.
+      }
+    }       
+  }
+}
+</script>
 
 
 </body>
